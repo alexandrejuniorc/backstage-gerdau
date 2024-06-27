@@ -2930,6 +2930,17 @@
     passport "^0.7.0"
     passport-gitlab2 "^5.0.0"
 
+"@backstage/plugin-auth-backend-module-gitlab-provider@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-auth-backend-module-gitlab-provider/-/plugin-auth-backend-module-gitlab-provider-0.1.18.tgz#83bb64c1251d3a0551859ec87f3ca5fede4a0f07"
+  integrity sha512-kYN9DPJDbJKjMwN0Sh1ToBUszEs7zNpRhH2a7LnRbmJOsxQWjo/Y9GkfSKIJStA83f46exE23L9WC2/mYqTSAQ==
+  dependencies:
+    "@backstage/backend-plugin-api" "^0.6.21"
+    "@backstage/plugin-auth-node" "^0.4.16"
+    express "^4.18.2"
+    passport "^0.7.0"
+    passport-gitlab2 "^5.0.0"
+
 "@backstage/plugin-auth-backend-module-google-provider@^0.1.17":
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-auth-backend-module-google-provider/-/plugin-auth-backend-module-google-provider-0.1.17.tgz#c78de2cb764e8411fe1ca64fc6e403a245f86cb3"
