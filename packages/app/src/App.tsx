@@ -38,7 +38,7 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { githubAuthApiRef, gitlabAuthApiRef } from '@backstage/core-plugin-api';
 import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
-
+import { CostInsightsPage } from '@backstage-community/plugin-cost-insights';
 
 const app = createApp({
   apis,
@@ -122,6 +122,7 @@ const routes = (
       path="/tech-radar"
       element={<TechRadarPage width={1500} height={800} />}
     />
+    <Route path="/cost-insights" element={<CostInsightsPage />} />
   </FlatRoutes>
 );
 

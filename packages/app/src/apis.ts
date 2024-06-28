@@ -11,6 +11,8 @@ import {
 
 import { MyOwnClient } from './lib/MyClient';
 import { techRadarApiRef } from '@backstage-community/plugin-tech-radar';
+import { costInsightsApiRef } from '@backstage-community/plugin-cost-insights';
+import { CostInsightsClient } from './lib/CostInsightsClient';
 
 export const apis: AnyApiFactory[] = [
   createApiFactory({
@@ -20,4 +22,9 @@ export const apis: AnyApiFactory[] = [
   }),
   ScmAuth.createDefaultApiFactory(),
   createApiFactory(techRadarApiRef, new MyOwnClient()),
+  createApiFactory({
+    api: costInsightsApiRef,
+    deps: {},
+    factory: () => new CostInsightsClient(),
+  }),
 ];

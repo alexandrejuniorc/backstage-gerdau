@@ -28,6 +28,8 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 
+import MoneyIcon from '@material-ui/icons/MonetizationOn';
+
 const useSidebarLogoStyles = makeStyles({
   root: {
     width: sidebarConfig.drawerWidthClosed,
@@ -74,7 +76,16 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarDivider />
         <SidebarScrollWrapper>
           {/* Items in this group will be scrollable if they run out of space */}
-          <SidebarItem icon={TrackChangesIcon} to="tech-radar" text="Tech Radar" />
+          <SidebarItem
+            icon={TrackChangesIcon}
+            to="tech-radar"
+            text="Tech Radar"
+          />
+          <SidebarItem
+            icon={MoneyIcon}
+            to="cost-insights"
+            text="Cost Insights"
+          />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />

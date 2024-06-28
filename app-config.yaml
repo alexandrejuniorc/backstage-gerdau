@@ -111,3 +111,25 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
+
+costInsights:
+  engineerCost: 200000
+  engineerThreshold: 0.5
+  products:
+    productA:
+      name: Some Cloud Product
+      icon: storage
+    productB:
+      name: Some Other Cloud Product
+      icon: data
+  currencies:
+    currencyA:
+      label: Currency A
+      unit: Unit A
+    currencyB:
+      label: Currency B
+      kind: CURRENCY_B
+      unit: Unit B
+      prefix: B
+      rate: 3.5
