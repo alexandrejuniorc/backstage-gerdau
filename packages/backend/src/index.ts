@@ -20,9 +20,15 @@ backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));
 // See https://backstage.io/docs/auth/identity-resolver/#building-custom-resolvers
+
+// github auth provider
 backend.add(PluginAuthBackendModuleGithubProvider);
 // See https://backstage.io/docs/backend-system/building-backends/migrating#the-auth-plugin
-backend.add(PluginAuthBackendModuleGitlabProvider)
+
+// gitlab auth provider
+backend.add(PluginAuthBackendModuleGitlabProvider);
+
+// guest provider
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
 // See https://backstage.io/docs/auth/guest/provider
 
@@ -42,5 +48,8 @@ backend.add(
 backend.add(import('@backstage/plugin-search-backend/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
+
+// adr (architecture decision records) plugin
+backend.add(import('@backstage-community/plugin-adr-backend'));
 
 backend.start();
