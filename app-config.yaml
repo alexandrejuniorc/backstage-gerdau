@@ -105,6 +105,8 @@ catalog:
     # Local example catalog-info.yaml
     - type: file
       target: ../../catalog-info.yaml
+      rules:
+        - allow: [Component]
 
     ## Uncomment these lines to add more example data
     # - type: url
