@@ -3206,6 +3206,20 @@
     passport "^0.7.0"
     passport-microsoft "^1.0.0"
 
+"@backstage/plugin-auth-backend-module-microsoft-provider@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-auth-backend-module-microsoft-provider/-/plugin-auth-backend-module-microsoft-provider-0.1.16.tgz#de9e031c595f97fd1f28386276ef6b421e3ebc24"
+  integrity sha512-wwd2xM9Ie1oyMZMd7i6tckbn3BPSUhSrV9hjYEnvmt7Wd+BjfcePuNt0YBpsWKcGpU/sbeUgPNqFDfVT9et+Mw==
+  dependencies:
+    "@backstage/backend-plugin-api" "^0.6.21"
+    "@backstage/plugin-auth-node" "^0.4.16"
+    express "^4.18.2"
+    jose "^5.0.0"
+    lodash "^4.17.21"
+    node-fetch "^2.6.7"
+    passport "^0.7.0"
+    passport-microsoft "^1.0.0"
+
 "@backstage/plugin-auth-backend-module-oauth2-provider@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-auth-backend-module-oauth2-provider/-/plugin-auth-backend-module-oauth2-provider-0.2.1.tgz#b20306cafc993a3c3cff57be4f096d8c495629e6"

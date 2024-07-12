@@ -7,8 +7,11 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
-import { PluginAuthBackendModuleGithubProvider } from './extensions/plugin-auth-backend-module-github-provider';
-import { PluginAuthBackendModuleGitlabProvider } from './extensions/plugin-auth-backend-module-gitlab-provider';
+import {
+  PluginAuthBackendModuleGithubProvider,
+  PluginAuthBackendModuleGitlabProvider,
+  PluginAuthBackendModuleMicrosoftProvider,
+} from './extensions/auth';
 
 const backend = createBackend();
 
@@ -27,6 +30,9 @@ backend.add(PluginAuthBackendModuleGithubProvider);
 
 // gitlab auth provider
 backend.add(PluginAuthBackendModuleGitlabProvider);
+
+// microsoft auth provider
+backend.add(PluginAuthBackendModuleMicrosoftProvider);
 
 // guest provider
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
