@@ -1,9 +1,10 @@
+# Backstage override configuration for your local development environment
 app:
-  title: Gerdau Backstage App
-  baseUrl: http://backstage-dev.gerdau.digital:3000
+  title: Scaffolded Backstage App
+  baseUrl: http://localhost:3000
 
 organization:
-  name: Gerdau
+  name: My Company
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -12,18 +13,17 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://backstage-dev.gerdau.digital:8080
+  baseUrl: http://localhost:7007
   listen:
-    port: 8080
+    port: 7007
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
   csp:
     connect-src: ["'self'", 'http:', 'https:']
-    upgrade-insecure-requests: false
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://backstage-dev.gerdau.digital:3000
+    origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -31,23 +31,18 @@ backend:
   database:
     client: better-sqlite3
     connection: ':memory:'
-    # client: pg
-    # connection:
-    #   host: ${POSTGRES_HOST}
-    #   port: ${POSTGRES_PORT}
-    #   user: ${POSTGRES_USER}
-    #   password: ${POSTGRES_PASSWORD}
-    # cache:
-    #   store: memory
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
   github:
     - host: github.com
-      token: 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
-  gitlab:
-    - host: gitlab.com
-      token: sSx-8nsVDfsqGR447f5J
+      # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
+      # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
+      token: ${GITHUB_TOKEN}
+    ### Example for how to add your GitHub Enterprise instance using the API:
+    # - host: ghe.example.net
+    #   apiBaseUrl: https://ghe.example.net/api/v3
+    #   token: ${GHE_TOKEN}
 
 proxy:
   ### Example for how to add a proxy endpoint for the frontend.
@@ -64,7 +59,7 @@ proxy:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'local' # Alternatives - 'local'
+    runIn: 'docker' # Alternatives - 'local'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
@@ -73,14 +68,6 @@ auth:
   providers:
     # See https://backstage.io/docs/auth/guest/provider
     guest: {}
-    github:
-      development:
-        clientId: Ov23liNYSbMjrHaJjBjl
-        clientSecret: be49f4942a8468fc416cdb68e27ea750ca098074
-    gitlab:
-      development:
-        clientId: feeeab9cf436b7951e334a56c5674d9c963a1f376597c8801f6f0e9aefe1eb60
-        clientSecret: b73d38f860fdc0cf99205ba4c315e6801d51431cc191f4192200eda871055bf2
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -108,12 +95,6 @@ catalog:
       rules:
         - allow: [User, Group]
 
-    # Local example catalog-info.yaml
-    - type: file
-      target: ../../catalog-info.yaml
-      rules:
-        - allow: [Component]
-
     ## Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
@@ -123,24 +104,3 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
-
-costInsights:
-  engineerCost: 200000
-  engineerThreshold: 0.5
-  products:
-    productA:
-      name: Some Cloud Product
-      icon: storage
-    productB:
-      name: Some Other Cloud Product
-      icon: data
-  currencies:
-    currencyA:
-      label: Currency A
-      unit: Unit A
-    currencyB:
-      label: Currency B
-      kind: CURRENCY_B
-      unit: Unit B
-      prefix: B
-      rate: 3.5

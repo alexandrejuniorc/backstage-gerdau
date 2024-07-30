@@ -36,9 +36,9 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-import { githubAuthApiRef, gitlabAuthApiRef } from '@backstage/core-plugin-api';
 import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 import { CostInsightsPage } from '@backstage-community/plugin-cost-insights';
+import { providers } from './components/signin/IdentityProviders';
 
 const app = createApp({
   apis,
@@ -61,25 +61,7 @@ const app = createApp({
   },
   components: {
     SignInPage: props => (
-      <SignInPage
-        {...props}
-        auto
-        providers={[
-          'guest',
-          {
-            id: 'github',
-            title: 'GitHub',
-            message: 'Sign in using GitHub',
-            apiRef: githubAuthApiRef,
-          },
-          {
-            id: 'gitlab',
-            title: 'GitLab',
-            message: 'Sign in using GitLab',
-            apiRef: gitlabAuthApiRef
-          }
-        ]}
-      />
+      <SignInPage {...props} auto providers={['guest', ...providers]} />
     ),
   },
 });

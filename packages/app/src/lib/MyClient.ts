@@ -24,7 +24,7 @@ export class MyOwnClient implements TechRadarApi {
   //   };
   // }
 
-  async load(id: string | undefined): Promise<TechRadarLoaderResponse> {
+  async load(_id: string | undefined): Promise<TechRadarLoaderResponse> {
     return {
       ...techRadarData,
       entries: techRadarData.entries.map(entry => ({

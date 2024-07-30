@@ -14,21 +14,21 @@ export class CostInsightsClient implements CostInsightsApi {
     return '2021-01-01'; // YYYY-MM-DD
   }
 
-  async getUserGroups(userId: string): Promise<Group[]> {
+  async getUserGroups(_userId: string): Promise<Group[]> {
     return [];
   }
 
-  async getGroupProjects(group: string): Promise<Project[]> {
+  async getGroupProjects(_group: string): Promise<Project[]> {
     return [];
   }
 
-  async getAlerts(group: string): Promise<Alert[]> {
+  async getAlerts(_group: string): Promise<Alert[]> {
     return [];
   }
 
   async getDailyMetricData(
-    metric: string,
-    intervals: string,
+    _metric: string,
+    _intervals: string,
   ): Promise<MetricData> {
     return {
       id: 'remove-me',
@@ -41,7 +41,7 @@ export class CostInsightsClient implements CostInsightsApi {
     };
   }
 
-  async getGroupDailyCost(group: string, intervals: string): Promise<Cost> {
+  async getGroupDailyCost(_group: string, _intervals: string): Promise<Cost> {
     return {
       id: 'remove-me',
       aggregation: [],
@@ -52,20 +52,9 @@ export class CostInsightsClient implements CostInsightsApi {
     };
   }
 
-  async getProjectDailyCost(project: string, intervals: string): Promise<Cost> {
-    return {
-      id: 'remove-me',
-      aggregation: [],
-      change: {
-        ratio: 0,
-        amount: 0,
-      },
-    };
-  }
-
-  async getCatalogEntityDailyCost(
-    catalogEntityRef: string,
-    intervals: string,
+  async getProjectDailyCost(
+    _project: string,
+    _intervals: string,
   ): Promise<Cost> {
     return {
       id: 'remove-me',
@@ -77,7 +66,21 @@ export class CostInsightsClient implements CostInsightsApi {
     };
   }
 
-  async getProductInsights(options: ProductInsightsOptions): Promise<Entity> {
+  async getCatalogEntityDailyCost(
+    _catalogEntityRef: string,
+    _intervals: string,
+  ): Promise<Cost> {
+    return {
+      id: 'remove-me',
+      aggregation: [],
+      change: {
+        ratio: 0,
+        amount: 0,
+      },
+    };
+  }
+
+  async getProductInsights(_options: ProductInsightsOptions): Promise<Entity> {
     return {
       id: 'remove-me',
       aggregation: [0, 0],
