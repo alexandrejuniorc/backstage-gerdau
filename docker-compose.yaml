@@ -5,7 +5,7 @@ services:
     image: backstage
     restart: always
     ports:
-      - "7007:7007"
+      - 7007:7007
     volumes:
       - backstage-data:/root/backstage
     networks:
@@ -25,19 +25,15 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - backstage-data:/var/lib/postgresql/data
     networks:
       - backstage-network
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-
 networks:
   backstage-network:
+
+
 volumes:
   backstage-data:
