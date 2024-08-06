@@ -7,6 +7,8 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import { PluginAuthBackendModuleGithubProvider } from './extensions/plugin-auth-backend-module-github-provider';
+import { PluginAuthBackendModuleGitlabProvider } from './extensions/plugin-auth-backend-module-gitlab-provider';
 
 const backend = createBackend();
 
@@ -17,7 +19,16 @@ backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));
+// See https://backstage.io/docs/auth/identity-resolver/#building-custom-resolvers
+
+// github auth provider
+backend.add(PluginAuthBackendModuleGithubProvider);
 // See https://backstage.io/docs/backend-system/building-backends/migrating#the-auth-plugin
+
+// gitlab auth provider
+backend.add(PluginAuthBackendModuleGitlabProvider);
+
+// guest provider
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
 // See https://backstage.io/docs/auth/guest/provider
 
@@ -27,9 +38,6 @@ backend.add(
   import('@backstage/plugin-catalog-backend-module-scaffolder-entity-model'),
 );
 
-// See https://backstage.io/docs/features/software-catalog/configuration#subscribing-to-catalog-errors
-backend.add(import('@backstage/plugin-catalog-backend-module-logs'));
-
 // permission plugin
 backend.add(import('@backstage/plugin-permission-backend/alpha'));
 backend.add(
@@ -38,13 +46,10 @@ backend.add(
 
 // search plugin
 backend.add(import('@backstage/plugin-search-backend/alpha'));
-
-// search engine
-// See https://backstage.io/docs/features/search/search-engines
-backend.add(import('@backstage/plugin-search-backend-module-pg/alpha'));
-
-// search collators
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
+
+// adr (architecture decision records) plugin
+backend.add(import('@backstage-community/plugin-adr-backend'));
 
 backend.start();

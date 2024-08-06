@@ -9,11 +9,21 @@ import {
   createApiFactory,
 } from '@backstage/core-plugin-api';
 
+import { techRadarApiRef } from '@backstage-community/plugin-tech-radar';
+import { costInsightsApiRef } from '@backstage-community/plugin-cost-insights';
+import { CostInsightsClient, TechRadarClient } from './lib';
+
 export const apis: AnyApiFactory[] = [
+  ScmAuth.createDefaultApiFactory(),
   createApiFactory({
     api: scmIntegrationsApiRef,
     deps: { configApi: configApiRef },
     factory: ({ configApi }) => ScmIntegrationsApi.fromConfig(configApi),
   }),
-  ScmAuth.createDefaultApiFactory(),
+  createApiFactory(techRadarApiRef, new TechRadarClient()),
+  createApiFactory({
+    api: costInsightsApiRef,
+    deps: {},
+    factory: () => new CostInsightsClient(),
+  }),
 ];

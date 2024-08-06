@@ -36,6 +36,9 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
+import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
+import { CostInsightsPage } from '@backstage-community/plugin-cost-insights';
+import { providers } from './components/signin/IdentityProviders';
 
 const app = createApp({
   apis,
@@ -57,7 +60,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => <SignInPage {...props} auto providers={providers} />,
   },
 });
 
@@ -95,6 +98,11 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route
+      path="/tech-radar"
+      element={<TechRadarPage width={1500} height={800} />}
+    />
+    <Route path="/cost-insights" element={<CostInsightsPage />} />
   </FlatRoutes>
 );
 

@@ -25,8 +25,10 @@ import {
 } from '@backstage/core-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { MyGroupsSidebarItem } from '@backstage/plugin-org';
-import GroupIcon from '@material-ui/icons/People';
+
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+
+import MoneyIcon from '@material-ui/icons/MonetizationOn';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -67,11 +69,6 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
         <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-        <MyGroupsSidebarItem
-          singularTitle="My Group"
-          pluralTitle="My Groups"
-          icon={GroupIcon}
-        />
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
@@ -79,6 +76,16 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarDivider />
         <SidebarScrollWrapper>
           {/* Items in this group will be scrollable if they run out of space */}
+          <SidebarItem
+            icon={TrackChangesIcon}
+            to="tech-radar"
+            text="Tech Radar"
+          />
+          <SidebarItem
+            icon={MoneyIcon}
+            to="cost-insights"
+            text="Cost Insights"
+          />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />
