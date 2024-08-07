@@ -8,7 +8,7 @@ metadata:
   #   github.com/project-slug: backstage/backstage
   #   backstage.io/techdocs-ref: dir:.
   annotations:
-    backstage.io/adr-location: https://github.com/alexandrejuniorc/backstage-gerdau/tree/develop/docs/architecture-decisions
+    backstage.io/adr-location: https://github.com/alexandrejuniorc/backstage-gerdau/tree/develop/docs/adrs
 
 spec:
   type: website
