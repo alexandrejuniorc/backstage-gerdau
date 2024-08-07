@@ -39,7 +39,7 @@ backend:
 integrations:
   github:
     - host: github.com
-      token: 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
+      token: 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
   gitlab:
     - host: gitlab.com
       token: sSx-8nsVDfsqGR447f5J
@@ -120,21 +120,10 @@ catalog:
 
 costInsights:
   engineerCost: 200000
-  engineerThreshold: 0.5
   products:
     productA:
-      name: Some Cloud Product
+      name: Some Cloud Product ## required
       icon: storage
     productB:
       name: Some Other Cloud Product
       icon: data
-  currencies:
-    currencyA:
-      label: Currency A
-      unit: Unit A
-    currencyB:
-      label: Currency B
-      kind: CURRENCY_B
-      unit: Unit B
-      prefix: B
-      rate: 3.5
