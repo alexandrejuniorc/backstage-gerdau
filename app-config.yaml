@@ -1,6 +1,6 @@
 app:
   title: Gerdau Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://backstage-dev.gerdau.digital:3000
 
 organization:
   name: Gerdau
@@ -12,18 +12,18 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost:7007
+  baseUrl: http://backstage-dev.gerdau.digital:8080
   listen:
-    port: 7007
+    port: 8080
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
   csp:
-    connect-src: ["'self'", 'http:', 'https:']
+    connect-src: ["'self'", "http:", "https:"]
     upgrade-insecure-requests: false
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://localhost:3000
+    origin: http://backstage-dev.gerdau.digital:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -31,7 +31,7 @@ backend:
   database:
     client: pg
     connection:
-      host: localhost
+      host: postgres
       port: 5432
       user: postgres
       password: example
@@ -57,11 +57,11 @@ proxy:
 # and an external cloud storage when deploying TechDocs for production use-case.
 # https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
-  builder: 'local' # Alternatives - 'external'
+  builder: "local" # Alternatives - 'external'
   generator:
-    runIn: 'local' # Alternatives - 'local'
+    runIn: "local" # Alternatives - 'local'
   publisher:
-    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    type: "local" # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
