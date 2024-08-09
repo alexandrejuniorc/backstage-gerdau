@@ -66,7 +66,13 @@ techdocs:
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
-    # See https://backstage.io/docs/auth/guest/provider
+    microsoft:
+      development:
+        clientId: "37ae1263-2c39-4b6e-9278-f2c873f14a00"
+        clientSecret: ".Vc8Q~Q3kGF63x4k2izueJm2P.IIbiuDnF_CecKM"
+        tenantId: "461fd7ef-0eb3-4420-b044-310dc2914d64"
+        authorizationUrl: "https://login.microsoftonline.com/461fd7ef-0eb3-4420-b044-310dc2914d64/oauth2/v2.0/authorize"
+        tokenUrl: "https://login.microsoftonline.com/461fd7ef-0eb3-4420-b044-310dc2914d64/oauth2/v2.0/token"
     github:
       development:
         clientId: Ov23liNYSbMjrHaJjBjl

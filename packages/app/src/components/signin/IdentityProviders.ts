@@ -1,5 +1,9 @@
 import { SignInProviderConfig } from '@backstage/core-components';
-import { githubAuthApiRef, gitlabAuthApiRef } from '@backstage/core-plugin-api';
+import {
+  githubAuthApiRef,
+  gitlabAuthApiRef,
+  microsoftAuthApiRef,
+} from '@backstage/core-plugin-api';
 
 export const providers: SignInProviderConfig[] = [
   {
@@ -13,5 +17,11 @@ export const providers: SignInProviderConfig[] = [
     title: 'GitLab',
     message: 'Sign in using GitLab',
     apiRef: gitlabAuthApiRef,
+  },
+  {
+    id: 'azure',
+    title: 'Azure',
+    message: 'Sign in using Azure',
+    apiRef: microsoftAuthApiRef,
   },
 ];
